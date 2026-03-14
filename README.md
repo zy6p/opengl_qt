@@ -6,6 +6,53 @@
 
 ![效果展示](./img/2021-05-17_15-10.png)
 
+## Quick Start
+
+> 下面给出 **CMake** 和 **qmake** 两种方式，任选一种即可。
+
+### 1) 环境依赖
+
+- Qt 5（含 Widgets / OpenGL 相关模块）
+- CMake 3.19+（若用 CMake 构建）
+- GDAL 开发库（头文件 + 动态/静态库）
+- C++14 编译器
+
+> `CMakeLists.txt` 使用 `LIB_DIR` 环境变量查找 GDAL：
+> - 头文件：`$LIB_DIR/include`
+> - 库文件：`$LIB_DIR/lib`
+
+### 2) 使用 CMake 构建与运行
+
+```bash
+# Linux / macOS
+export LIB_DIR=/path/to/your/deps
+cmake -S . -B build
+cmake --build build -j
+./build/opengl_qt
+```
+
+```powershell
+# Windows (PowerShell)
+$env:LIB_DIR="D:/3rdparty"
+cmake -S . -B build
+cmake --build build --config Release
+./build/Release/opengl_qt.exe
+```
+
+### 3) 使用 qmake 构建（Demo.pro）
+
+```bash
+qmake Demo.pro
+make -j
+./Demo
+```
+
+### 4) 运行后怎么体验
+
+- 程序会同时打开 `MainWindow` 和 `OpenGLWindow`。
+- 在 `OpenGLWindow` 中点击按钮加载 `.shp` 文件。
+- 可使用鼠标拖拽/滚轮进行平移缩放，右键拖动视角，配合复选框测试旋转、选择、密度分析等功能。
+
 ## Project Structure
 
 这个项目是一个基于 **Qt + OpenGL + GDAL/OGR** 的地图渲染实验，核心流程是：
