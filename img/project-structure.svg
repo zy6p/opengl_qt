@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860">
+  <style>
+    .title { font: 700 34px 'Arial', sans-serif; fill: #111; }
+    .label { font: 700 21px 'Arial', sans-serif; fill: #111; }
+    .item { font: 18px 'Arial', sans-serif; fill: #222; }
+    .arrow { stroke: #333; stroke-width: 4; marker-end: url(#arrowHead); }
+    .box { stroke: #333; stroke-width: 2.5; rx: 14; }
+  </style>
+
+  <defs>
+    <marker id="arrowHead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+
+  <text x="640" y="56" class="title" text-anchor="middle">opengl_qt Project Structure</text>
+
+  <rect x="70" y="120" width="360" height="170" class="box" fill="#eaf3ff"/>
+  <text x="250" y="155" class="label" text-anchor="middle">UI Layer</text>
+  <text x="95" y="190" class="item">• main.cpp</text>
+  <text x="95" y="220" class="item">• mainwindow.* / mainwindow.ui</text>
+  <text x="95" y="250" class="item">• openglwindow.* / openglwindow.ui</text>
+
+  <rect x="470" y="120" width="360" height="170" class="box" fill="#e9fff0"/>
+  <text x="650" y="155" class="label" text-anchor="middle">Rendering Core</text>
+  <text x="495" y="190" class="item">• openglwidget.*</text>
+  <text x="495" y="220" class="item">• Camera / mouse / keyboard interaction</text>
+  <text x="495" y="250" class="item">• shaders/simple.vert + simple.frag</text>
+
+  <rect x="870" y="120" width="350" height="170" class="box" fill="#fff4e8"/>
+  <text x="1045" y="155" class="label" text-anchor="middle">Data &amp; Geometry</text>
+  <text x="895" y="190" class="item">• renderlayer.*</text>
+  <text x="895" y="220" class="item">• GDAL/OGR feature parsing</text>
+  <text x="895" y="250" class="item">• gpc.* triangulation</text>
+
+  <rect x="870" y="350" width="350" height="160" class="box" fill="#f3ebff"/>
+  <text x="1045" y="385" class="label" text-anchor="middle">Spatial Index</text>
+  <text x="895" y="420" class="item">• rtreeindex.* (insert/split/search)</text>
+  <text x="895" y="450" class="item">• Grid index in RenderLayer</text>
+  <text x="895" y="480" class="item">• utils.* envelope helpers</text>
+
+  <rect x="70" y="350" width="360" height="160" class="box" fill="#fffde8"/>
+  <text x="250" y="385" class="label" text-anchor="middle">Resources</text>
+  <text x="95" y="420" class="item">• resources.qrc</text>
+  <text x="95" y="450" class="item">• img/* screenshots &amp; docs assets</text>
+
+  <rect x="470" y="350" width="360" height="160" class="box" fill="#e8fbff"/>
+  <text x="650" y="385" class="label" text-anchor="middle">Build &amp; Project Files</text>
+  <text x="495" y="420" class="item">• CMakeLists.txt</text>
+  <text x="495" y="450" class="item">• Demo.pro</text>
+
+  <rect x="470" y="590" width="360" height="160" class="box" fill="#fdeeff"/>
+  <text x="650" y="625" class="label" text-anchor="middle">Tests</text>
+  <text x="495" y="660" class="item">• tests/testtriangulate.cpp</text>
+  <text x="495" y="690" class="item">• Triangulation validation sample</text>
+
+  <line x1="430" y1="205" x2="470" y2="205" class="arrow"/>
+  <line x1="830" y1="205" x2="870" y2="205" class="arrow"/>
+  <line x1="1045" y1="290" x2="1045" y2="350" class="arrow"/>
+  <line x1="430" y1="430" x2="470" y2="430" class="arrow"/>
+  <line x1="650" y1="510" x2="650" y2="590" class="arrow"/>
+
+  <text x="70" y="810" class="item">Main flow: UI controls → OpenGL widget rendering → RenderLayer data pipeline, with grid + R-Tree acceleration.</text>
+</svg>
