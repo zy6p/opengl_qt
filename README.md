@@ -19,7 +19,11 @@
 
 > `CMakeLists.txt` 使用 `LIB_DIR` 环境变量查找 GDAL：
 > - 头文件：`$LIB_DIR/include`
-> - 库文件：`$LIB_DIR/lib`
+> - 库文件目录：`$LIB_DIR/lib`（其中需能找到名为 `gdal` 的库）
+>   - 说明：`CMakeLists.txt` 中使用 `find_library(... NAMES gdal ...)` 查找 GDAL。
+>     在部分 Windows 发行版中，GDAL 链接库名为 `gdal_i.lib`，此时可能需要：
+>     - 修改 `CMakeLists.txt` 增加 `gdal_i` 作为候选名称；或
+>     - 提供一个名为 `gdal.lib` 的别名/复制，以便 `find_library` 能找到。
 
 ### 2) 使用 CMake 构建与运行
 
