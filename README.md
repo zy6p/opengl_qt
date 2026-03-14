@@ -41,6 +41,12 @@ cmake --build build --config Release
 
 ### 3) 使用 qmake 构建（Demo.pro）
 
+> 注意：`Demo.pro` 中目前包含 **Windows 下的绝对路径** (`INCLUDEPATH` / `LIBS` 指向本机 GDAL 目录)，
+> 在其他环境（或你的 Windows 机器）上使用前，必须先根据自己的 GDAL 安装位置手动修改这些路径
+> （或自行参数化，例如使用环境变量）。否则，直接运行 `qmake Demo.pro` 很可能会导致编译失败。
+>
+> 推荐优先使用上面的 **CMake 构建方式**；qmake 仅作为示例/备用方案提供。
+
 ```bash
 qmake Demo.pro
 make -j
